@@ -190,8 +190,7 @@ export function ScoreChart({ projects }: ScoreChartProps) {
                         {blockNames.map((blockName, index) => (
                           <div key={blockName} className="flex items-center gap-2 md:gap-3 bg-white/90 px-2 md:px-4 py-1 md:py-2 rounded-full shadow-sm border border-white/60 text-xs md:text-sm">
                             <div 
-                              className="w-3 md:w-4 h-3 md:h-4 rounded-full shadow-lg flex-shrink-0" 
-                              style={{ backgroundColor: blockColors[index % blockColors.length] }}
+                              className={`w-3 md:w-4 h-3 md:h-4 rounded-full shadow-lg flex-shrink-0 block-color-${index % blockColors.length}`}
                             />
                             <span className="font-semibold text-foreground line-clamp-1">{blockName}</span>
                           </div>
@@ -241,11 +240,8 @@ export function ScoreChart({ projects }: ScoreChartProps) {
                                     </div>
                                     <div className="w-full bg-gradient-to-r from-gray-100 to-gray-200 rounded-full h-2 md:h-3 overflow-hidden shadow-inner">
                                       <div 
-                                        className="h-full rounded-full transition-all duration-700 shadow-sm" 
-                                        style={{ 
-                                          width: `${percentage}%`,
-                                          backgroundColor: blockColors[blockIndex % blockColors.length]
-                                        }} 
+                                        className={`h-full rounded-full transition-all duration-700 shadow-sm block-color-${blockIndex % blockColors.length}`}
+                                        style={{ width: `${percentage}%` }}
                                       />
                                     </div>
                                   </div>

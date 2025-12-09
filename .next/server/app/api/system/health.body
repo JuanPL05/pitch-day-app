@@ -1,1 +1,0 @@
-{"status":"ok","timestamp":"2025-12-09T17:56:59.243Z","health":{"database":false,"tables":false,"data":false,"error":"Error connecting to database: TypeError: fetch failed"}}

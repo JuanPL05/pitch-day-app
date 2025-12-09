@@ -5,7 +5,6 @@ import { Share_Tech_Mono } from "next/font/google"
 import { Roboto } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
-import "./tailwind.css"
 import "./globals.css"
 
 const orbitron = Orbitron({

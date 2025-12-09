@@ -105,15 +105,15 @@ export function EvaluationForm({
   }
 
   return (
-    <div className="space-y-8">
-      <div className="text-center bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-6 border border-primary/20">
-        <h3 className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+    <div className="space-y-4 md:space-y-8">
+      <div className="text-center bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-4 md:p-6 border border-primary/20">
+        <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
           {block.name}
         </h3>
-        {block.description && <p className="text-muted-foreground mt-3 text-lg leading-relaxed">{block.description}</p>}
+        {block.description && <p className="text-muted-foreground mt-2 md:mt-3 text-sm md:text-lg leading-relaxed">{block.description}</p>}
       </div>
 
-      <div className="space-y-8">
+      <div className="space-y-4 md:space-y-8">
         {sortedQuestions.map((question) => {
           const currentStarRating = getStarRating(question.id)
           const currentActualScore = getEvaluationScore(question.id)
@@ -145,59 +145,59 @@ export function EvaluationForm({
               key={question.id}
               className="overflow-hidden border-2 hover:border-primary/30 transition-all duration-300"
             >
-              <CardHeader className="bg-gradient-to-r from-muted/50 to-background">
-                <CardTitle className="text-xl flex items-center gap-3">
-                  <Badge className="bg-gradient-to-r from-primary to-accent text-white shadow-md">
+              <CardHeader className="bg-gradient-to-r from-muted/50 to-background p-3 md:p-6">
+                <CardTitle className="text-base md:text-xl flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-3">
+                  <Badge className="bg-gradient-to-r from-primary to-accent text-white shadow-md text-sm md:text-base flex-shrink-0">
                     {question.order}
                   </Badge>
-                  <span className="flex-1">{question.text}</span>
-                  <Badge variant="outline" className="text-sm font-medium border-accent text-accent">
+                  <span className="flex-1 text-sm md:text-base">{question.text}</span>
+                  <Badge variant="outline" className="text-xs md:text-sm font-medium border-accent text-accent flex-shrink-0">
                     Máx: {maxScore.toFixed(2)} pts
                   </Badge>
                 </CardTitle>
                 {question.description && (
-                  <p className="text-muted-foreground mt-3 text-base leading-relaxed pl-12">{question.description}</p>
+                  <p className="text-muted-foreground mt-2 md:mt-3 text-xs md:text-base leading-relaxed pl-0 md:pl-12">{question.description}</p>
                 )}
               </CardHeader>
-              <CardContent className="p-8">
-                <div className="flex items-center justify-center gap-3 mb-6">
+              <CardContent className="p-3 md:p-8">
+                <div className="flex items-center justify-center gap-1 md:gap-3 mb-4 md:mb-6 flex-wrap">
                   {[1, 2, 3, 4, 5].map((starRating) => {
                     const isSelected = currentStarRating === starRating
                     return (
                       <Button
                         key={starRating}
                         variant="outline"
-                        size="lg"
-                        className={`w-20 h-20 text-lg transition-all duration-300 relative ${
+                        size="sm"
+                        className={`w-12 md:w-20 h-12 md:h-20 text-xs md:text-lg transition-all duration-300 relative ${
                           isSelected ? "star-selected border-0" : "star-unselected"
                         }`}
                         onClick={() => handleScoreChange(question.id, starRating)}
                         disabled={isLoading}
                       >
-                        <div className="flex flex-col items-center gap-1">
-                          <Star className={`w-7 h-7 ${isSelected ? "fill-current" : "stroke-current"}`} />
-                          <span className="text-sm font-semibold">{starRating}</span>
-                          {isSelected && <CheckCircle className="w-4 h-4 absolute -top-1 -right-1 text-white" />}
+                        <div className="flex flex-col items-center gap-0.5 md:gap-1">
+                          <Star className={`w-5 md:w-7 h-5 md:h-7 ${isSelected ? "fill-current" : "stroke-current"}`} />
+                          <span className="text-xs md:text-sm font-semibold">{starRating}</span>
+                          {isSelected && <CheckCircle className="w-3 md:w-4 h-3 md:h-4 absolute -top-1 -right-1 text-white" />}
                         </div>
                       </Button>
                     )
                   })}
                 </div>
 
-                <div className="text-center space-y-3">
-                  <div className="flex justify-between text-sm text-muted-foreground font-medium">
+                <div className="text-center space-y-2 md:space-y-3">
+                  <div className="flex justify-between text-xs md:text-sm text-muted-foreground font-medium">
                     <span>Muy Bajo</span>
                     <span>Excelente</span>
                   </div>
 
-                  <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg p-4 border border-primary/20">
-                    <div className="text-lg font-bold text-primary">
+                  <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg p-3 md:p-4 border border-primary/20">
+                    <div className="text-base md:text-lg font-bold text-primary">
                       Puntuación:{" "}
                       {currentStarRating !== null ? ((currentStarRating / 5) * maxScore).toFixed(2) : "0.00"} /{" "}
                       {maxScore.toFixed(2)} pts
                     </div>
                     {currentStarRating && (
-                      <div className="text-sm text-muted-foreground mt-1">
+                      <div className="text-xs md:text-sm text-muted-foreground mt-1">
                         {currentStarRating} {currentStarRating === 1 ? "estrella" : "estrellas"} seleccionada
                         {currentStarRating === 1 ? "" : "s"}
                       </div>

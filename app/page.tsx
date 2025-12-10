@@ -20,7 +20,7 @@ export default function HomePage() {
         <div className="text-center mb-12">
           <h1 className="text-6xl font-black mb-4 retro-glow">PITCH DAY</h1>
           <div className="flex items-center justify-center gap-2 mb-6">
-            <Badge className="retro-border text-lg px-4 py-2">Banco de Venezuela</Badge>
+            <Badge className="retro-border text-lg px-4 py-2">Banco Plaza</Badge>
             <Zap className="w-6 h-6 text-accent animate-pulse" />
           </div>
           <p className="text-xl text-muted-foreground font-mono max-w-2xl mx-auto">

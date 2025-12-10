@@ -63,16 +63,16 @@ export function StatsCards({ projects }: StatsCardsProps) {
   ]
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 mb-6 md:mb-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
       {stats.map((stat, index) => (
         <Card key={index}>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-3 md:p-6">
-            <CardTitle className="text-xs md:text-sm font-medium">{stat.title}</CardTitle>
-            <stat.icon className="h-3 md:h-4 w-3 md:w-4 text-muted-foreground flex-shrink-0" />
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">{stat.title}</CardTitle>
+            <stat.icon className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
-          <CardContent className="p-3 md:p-6 pt-0 md:pt-0">
-            <div className="text-xl md:text-2xl font-bold">{stat.value}</div>
-            <p className="text-xs md:text-xs text-muted-foreground">{stat.description}</p>
+          <CardContent>
+            <div className="text-2xl font-bold">{stat.value}</div>
+            <p className="text-xs text-muted-foreground">{stat.description}</p>
           </CardContent>
         </Card>
       ))}
